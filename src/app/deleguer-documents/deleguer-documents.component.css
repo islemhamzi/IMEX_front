@@ -1,0 +1,94 @@
+/* Container and Overall Styling */
+.container-fluid {
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  max-width: 100%;
+  padding: 0 2rem;
+}
+
+.full-page {
+  padding-top: 80px; /* Adjust this value if needed */
+}
+
+.fixed-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: white;
+  padding: 0.5rem 0;
+}
+
+.table-title {
+  text-align: left;
+  font-size: 2rem;
+  color: #4169E1; /* Royal Blue Color */
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.table-title i {
+  margin-right: 0.5rem;
+}
+
+.table-title:hover {
+  color: #6495ED; /* Light Blue Color */
+  text-decoration: underline; /* Underline on Hover */
+}
+
+/* Card Styling */
+.card {
+  background: #f8f9fa; /* Light grey background color */
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0; /* Slightly darker border */
+}
+
+.card .form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.card .form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1.25rem;
+  background-color: #ffffff; /* White background for input */
+  color: #333; /* Dark text color */
+}
+
+.card .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #4169E1; /* Royal Blue Color matching the title */
+  border-color: #4169E1;
+  color: white;
+  padding: 0.5rem 1rem; /* Smaller padding for smaller button size */
+  font-size: 1rem; /* Smaller font size */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6495ED; /* Light Blue Color matching the title hover */
+  border-color: #6495ED;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(65, 105, 225, 0.4); /* Adjusted to match button color */
+}
+
+/* Additional Styling for Form */
+.d-grid {
+  display: grid;
+}
+
+.btn-lg {
+  border-radius: 8px;
+}

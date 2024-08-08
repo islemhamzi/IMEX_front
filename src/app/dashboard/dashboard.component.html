@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="pagination">
+    <button class="prev-button" (click)="prevPage()">Previous</button>
+    <h2 class="dashboard-title">Tableau de Bord</h2>
+    <button class="next-button" (click)="nextPage()">Next</button>
+  </div>
+
+  <div class="page active">
+    <div class="row">
+      <div class="col-md-6 chart-container">
+        <h3 class="chart-title">Nombre de documents générés par types</h3>
+        <canvas baseChart
+                [data]="documentsByType"
+                [type]="documentsByType.type">
+        </canvas>
+      </div>
+      <div class="col-md-6 chart-container">
+        <h3 class="chart-title">Nombre de documents consultés par type</h3>
+        <canvas baseChart
+                [data]="documentsConsultedByType"
+                [type]="documentsConsultedByType.type">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="row">
+      <div class="col-md-6 chart-container">
+        <h3 class="chart-title">Nombre de documents envoyés par mail / par type</h3>
+        <canvas baseChart
+                [data]="documentsEmailedByType"
+                [type]="documentsEmailedByType.type">
+        </canvas>
+      </div>
+      <div class="col-md-6 chart-container">
+        <h3 class="chart-title">Nombre de documents par type/agence</h3>
+        <canvas baseChart
+                [data]="documentsByTypeAndAgency"
+                [type]="documentsByTypeAndAgency.type">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

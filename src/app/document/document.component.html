@@ -1,0 +1,106 @@
+<app-header></app-header>
+<div class="container-fluid mt-0 full-page">
+  <div class="row">
+    <div class="col-12">
+      <div class="fixed-title">
+        <h2 class="table-title">
+          <i class="fas fa-folder-open"></i> Liste des Documents
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="table-container">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Numéro de Compte</th>
+              <th>Code Client</th>
+              <th>Type de Document</th>
+              <th>Date d'édition</th>
+              <th>Date Comptable</th>
+              <th>Nom du Document</th>
+              <th>Chemin du Document</th>
+              <th>Agence d'Édition</th>
+              <th>Visualiser</th>
+              <th>Télécharger</th>
+              <th>Envoyer par Email</th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let document of documents; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ document.numeroCompte }}</td>
+              <td>{{ document.codeClient }}</td>
+              <td>{{ document.typeDocument }}</td>
+              <td>{{ document.dateEdition | date }}</td>
+              <td>{{ document.dateComptable | date }}</td>
+              <td>{{ document.nomDocument }}</td>
+              <td>{{ document.cheminDocument }}</td>
+              <td>{{ document.agenceEdition }}</td>
+              <td>
+                <button class="btn btn-secondary" (click)="viewDocument(document.idDocument)">
+                  <i class="fas fa-eye"></i> Visualiser
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-primary" (click)="download(document.idDocument)">
+                  <i class="fas fa-download"></i> Télécharger
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-secondary" (click)="openEmailModal(document.idDocument)">
+                  <i class="fas fa-envelope"></i> Envoyer par Email
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteItem(document)">
+                  <i class="fas fa-trash"></i> Supprimer
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email Modal -->
+<div *ngIf="emailModalVisible" class="modal fade show d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Envoyer le document par email</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEmailModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="sendEmail()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Adresse Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Document Viewer Modal -->
+<div *ngIf="pdfUrl" class="modal fade show d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Visualiser le document</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeViewer()"></button>
+      </div>
+      <div class="modal-body">
+        <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="sidebar" [class.closed]="isClosed">
+  <div class="toggle-button" (click)="toggleSidebar()">
+    <i class="fas" [class.fa-chevron-left]="!isClosed" [class.fa-chevron-right]="isClosed"></i>
+  </div>
+  <div class="menu-header" *ngIf="!isClosed">Menu</div>
+  <div class="menu-item">
+    <i class="fas fa-tachometer-alt"></i>
+    <a routerLink="/tableau-de-bord" *ngIf="!isClosed">Tableau de bord</a>
+  </div>
+  <div *ngIf="user">
+    <div class="menu-item">
+      <i class="fas fa-folder"></i>
+      <a routerLink="/documents" *ngIf="!isClosed">Documents</a>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <i class="fas fa-search-plus"></i>
+    <a routerLink="/recherche-avancee" *ngIf="!isClosed">Recherche Avancée</a>
+  </div>
+  <div *ngIf="user && user.roles.includes('ADMIN')">
+    <div class="menu-section" *ngIf="!isClosed"><i class="fas fa-users-cog"></i> Utilisateurs</div>
+    <div class="menu-item">
+      <i class="fas fa-users-cog"></i>
+      <a routerLink="/gestion-des-utilisateurs" *ngIf="!isClosed">Gestion des Utilisateurs</a>
+    </div>
+    <div class="menu-item">
+      <i class="fas fa-clipboard-list"></i>
+      <a routerLink="/journal-activite" *ngIf="!isClosed">Journal d'activité</a>
+    </div>
+  </div>
+  <div class="menu-section" *ngIf="!isClosed"><i class="fas fa-handshake"></i> Délégation</div>
+  <div class="menu-item">
+    <i class="fas fa-handshake"></i>
+    <a routerLink="/deleguer-documents" *ngIf="!isClosed">Déléguer mes documents</a>
+  </div>
+  <div class="menu-item">
+    <i class="fas fa-file-alt"></i>
+    <a routerLink="/consulter-mes-documents" *ngIf="!isClosed">Consulter Mes Délégations</a>
+  </div>
+</div>

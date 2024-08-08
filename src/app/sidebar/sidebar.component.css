@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Adjust this value to be slightly below the header */
+  left: 0;
+  height: calc(100% - 60px); /* Adjust this value according to the height of your header */
+  width: 250px;
+  background: linear-gradient(to right, #141E30, #243B55); /* Same color as the header */
+  color: rgb(225, 231, 238);
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: width 0.3s, left 0.3s;
+  z-index: 1000;
+  font-family: 'Lobster', cursive; /* Same font as the header */
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 15px; /* Adjust to align with the header */
+  right: -15px;
+  background: #1a1a2e;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.menu-header, .menu-item, .menu-section {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.sidebar.closed .menu-header, .sidebar.closed .menu-item a, .sidebar.closed .menu-section {
+  opacity: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item i {
+  margin-right: 10px;
+}
+
+.menu-item a {
+  color: rgb(237, 243, 245);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-section {
+  font-weight: bold;
+  padding-top: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}

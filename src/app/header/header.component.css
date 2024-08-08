@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.navbar {
+  background: linear-gradient(to right, #141E30, #243B55);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  color: #ffffff !important;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 0.1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+
+.navbar-toggler {
+  filter: invert(100%);
+}
+
+.navbar-text.user-info {
+  color: #f8f9fc; /* Utilisation de la couleur blanche */
+  font-weight: bold;
+  font-family: 'Lobster', cursive; /* Utilisation de la même police que la marque */
+  font-size: 1.5rem; /* Augmente la taille de police */
+  text-align: center;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-text.user-info::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffffff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-text.user-info:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.logout-button {
+  border: 2px solid #ffffff; /* Utilisation de la couleur blanche */
+  color: #ffffff; /* Utilisation de la couleur blanche */
+  background: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Lobster', cursive; /* Utilisation de la même police que la marque */
+}
+
+.logout-button:hover {
+  background-color: #ffffff;
+  color: #243B55; /* Changement de la couleur du texte pour correspondre au fond de la navbar */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .navbar-text.user-info {
+    font-size: 1.2rem; /* Taille de police adaptée pour les petits écrans */
+  }
+
+  .logout-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+  }
+}

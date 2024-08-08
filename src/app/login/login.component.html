@@ -1,0 +1,47 @@
+<div class="login-background">
+  <div class="particles"></div>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+      </div>
+      <h2>Bienvenue sur IMEX SecureLink</h2>
+      <p>Connectez-vous pour accéder à votre compte et gérer vos documents efficacement!</p>
+      <form #formLogin="ngForm" (ngSubmit)="onSubmitLogin(formLogin)">
+        <div class="form-group">
+          <input
+            type="text"
+            id="matricule"
+            placeholder="Username"
+            ngModel
+            #matricule="ngModel"
+            name="matricule"
+            required
+          />
+          <div *ngIf="matricule.errors && formLogin.submitted" class="error-message">
+            Le matricule est requis !
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            ngModel
+            #password="ngModel"
+            name="password"
+            required
+            minlength="6"
+          />
+          <div *ngIf="password.errors && formLogin.submitted" class="error-message">
+            <div *ngIf="password.errors['required']">Le mot de passe est requis.</div>
+            <div *ngIf="password.errors['minlength']">
+              Le mot de passe doit comporter au moins 6 caractères.
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="login-button">Se Connecter</button>
+      </form>
+    </div>
+  </div>
+</div>

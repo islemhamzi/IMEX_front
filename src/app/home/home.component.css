@@ -1,0 +1,131 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to right, #141E30, #243B55);
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s;
+  z-index: 1000;
+  font-family: 'Lobster', cursive;
+  overflow-y: auto; /* Allows sidebar to be scrollable */
+  position: fixed; /* Keeps sidebar fixed */
+  top: 60px; /* Adjust according to header height */
+  bottom: 0;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.content-container {
+  flex-grow: 1;
+  overflow-y: auto; /* Makes the content scrollable */
+  margin-left: 250px; /* Adjusts for sidebar width */
+  transition: margin-left 0.3s;
+  padding-top: 80px; /* Adjust according to header height plus extra spacing */
+}
+
+.sidebar.closed ~ .content-container {
+  margin-left: 60px; /* Adjusts for collapsed sidebar */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.card {
+  background: linear-gradient(to right, #E0F7FA, #B2EBF2); /* Gradient bleu très clair */
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent; /* Adds a transparent border */
+  background-clip: padding-box; /* Ensures gradient doesn't affect border */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 144, 255, 0.1); /* Adds a subtle blue overlay */
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.card:hover::before {
+  background: rgba(30, 144, 255, 0.2); /* Intensifies the overlay on hover */
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.introduction-image {
+  max-width: 150px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Header */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: linear-gradient(to right, #141E30, #243B55);
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+  margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #007bff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background-color: #0056b3;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

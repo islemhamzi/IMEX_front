@@ -43,6 +43,19 @@ export class GestionDesUtilisateursComponent implements OnInit {
     };
   }
 
+  // Updated method to format roles without commas
+  getFormattedRoles(roles: string[]): string {
+    if (roles.length === 0) {
+      return 'Aucun rôle'; // Return 'No role' if the array is empty
+    }
+    
+    if (roles.length === 1) {
+      return roles[0]; // Return the single role directly
+    }
+
+    return roles.join(' '); // Join with a space for multiple roles
+  }
+
   changeUserStatus(user: User): void {
     const newStatus = user.accountStatus === 'ACTIVE' ? 'INACTIVE' : 'ACTIVE';
     this.userService.updateUserStatus(user.matriculeLdap, newStatus).subscribe({
@@ -90,7 +103,7 @@ export class GestionDesUtilisateursComponent implements OnInit {
     if (this.selectedUser) {
       this.userService.updateUserRoles(this.selectedUser.matriculeLdap, [...this.selectedUser.roles, role]).subscribe({
         next: () => {
-          if (this.selectedUser) { // Check again if selectedUser is not null
+          if (this.selectedUser) {
             this.selectedUser.roles.push(role);
             this.updateUserRolesInList(this.selectedUser.matriculeLdap, [...this.selectedUser.roles]);
 
@@ -108,7 +121,7 @@ export class GestionDesUtilisateursComponent implements OnInit {
       const newRoles = this.selectedUser.roles.filter(r => r !== role);
       this.userService.updateUserRoles(this.selectedUser.matriculeLdap, newRoles).subscribe({
         next: () => {
-          if (this.selectedUser) { // Check again if selectedUser is not null
+          if (this.selectedUser) {
             this.selectedUser.roles = newRoles;
             this.updateUserRolesInList(this.selectedUser.matriculeLdap, newRoles);
 

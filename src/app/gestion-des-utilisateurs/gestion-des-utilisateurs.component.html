@@ -34,7 +34,7 @@
               <td>{{ user.matriculeAmplitude }}</td>
               <td>{{ user.creationDate }}</td>
               <td>{{ user.accountStatus }}</td>
-              <td>{{ user.roles.join(', ') }}</td>
+              <td>{{ getFormattedRoles(user.roles) }}</td> <!-- Utilisation de la méthode ici -->
               <td>
                 <button class="btn btn-primary" (click)="changeUserStatus(user)">
                   {{ user.accountStatus === 'ACTIVE' ? 'Désactiver' : 'Activer' }}
@@ -45,6 +45,7 @@
               </td>
             </tr>
           </tbody>
+          
         </table>
       </div>
     </div>

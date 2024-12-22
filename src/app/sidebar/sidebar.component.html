@@ -13,7 +13,6 @@
       <a routerLink="/documents" *ngIf="!isClosed">Documents</a>
     </div>
   </div>
-
   <div class="menu-item">
     <i class="fas fa-search-plus"></i>
     <a routerLink="/recherche-avancee" *ngIf="!isClosed">Recherche Avancée</a>
@@ -38,4 +37,11 @@
     <i class="fas fa-file-alt"></i>
     <a routerLink="/consulter-mes-documents" *ngIf="!isClosed">Consulter Mes Délégations</a>
   </div>
-</div>
+
+  <!-- Chatbot menu item -->
+
+  <div class="menu-item">
+    <i class="fas fa-comments"></i>
+    <a routerLink="/chatbot" *ngIf="!isClosed">Chatbot</a>
+  </div>
+  

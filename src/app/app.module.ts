@@ -20,6 +20,8 @@ import { DocumentComponent } from './document/document.component';
 import { DeleguerDocumentsComponent } from './deleguer-documents/deleguer-documents.component';
 import { ConsulterMesDocumentsComponent } from './consulter-mes-documents/consulter-mes-documents.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DocumentComponent,
     DeleguerDocumentsComponent,
     ConsulterMesDocumentsComponent,
-    DashboardComponent
+    DashboardComponent,
+    ChatbotComponent,
+   
   ],
   imports: [
     BrowserModule,

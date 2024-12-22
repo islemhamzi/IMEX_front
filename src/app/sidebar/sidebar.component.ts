@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
   user: User | null = null;
   @Input() isClosed = false;  // Default to open sidebar
   @Output() toggle = new EventEmitter<void>();
+  isChatbotVisible : boolean = false ;
 
   constructor(private authService: AuthService) {}
 
@@ -28,5 +29,9 @@ export class SidebarComponent implements OnInit {
   openSidebar() {
     this.isClosed = false;
     this.toggle.emit();
+  }
+
+  toggleChatbot() {
+    this.isChatbotVisible = !this.isChatbotVisible;
   }
 }

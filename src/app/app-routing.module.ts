@@ -11,6 +11,7 @@ import { DocumentComponent } from './document/document.component';
 import { DeleguerDocumentsComponent } from './deleguer-documents/deleguer-documents.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConsulterMesDocumentsComponent } from './consulter-mes-documents/consulter-mes-documents.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,12 @@ const routes: Routes = [
   {
     path: 'consulter-mes-documents', // Ajoutez cette route
     component: ConsulterMesDocumentsComponent,
+    canActivate: [authGuard],
+    data: { roles: ['ADMIN', 'USER', 'CHEF_AGENCE', 'TFJO'] }
+  },
+  {
+    path: 'chatbot',
+    component: ChatbotComponent,
     canActivate: [authGuard],
     data: { roles: ['ADMIN', 'USER', 'CHEF_AGENCE', 'TFJO'] }
   },

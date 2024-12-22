@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="main-content">
+  <div class="chat-container">
+    <div class="header">
+      <h3>Chatbot</h3>
+      <button class="close-btn" (click)="closeChatbot()">X</button>
+    </div>
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message">
+        <span class="bot-message" *ngIf="message.startsWith('Bot:')">{{ message }}</span>
+        <span class="user-message" *ngIf="message.startsWith('You:')">{{ message }}</span>
+      </div>
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        [(ngModel)]="userMessage"
+        placeholder="Type a message..."
+        (keyup.enter)="sendMessage()"
+      />
+      <button class="send-btn" (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
